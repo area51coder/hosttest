@@ -1,0 +1,7 @@
+---
+- name: host test
+  hosts: all
+
+  tasks:
+    - name : check date
+      shell: date

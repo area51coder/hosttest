@@ -7,11 +7,12 @@
     - name : check date
       shell: date
       notify: restart nginx
+    - name: capture output of whoami command
+      command: whoami
+      register: login  
+    - debug : var=login 
     - debug : var=file
   handlers:
     - name: restart nginx
       service: name=nginx state=restarted
-    - name: capture output of whoami command
-      command: whoami
-      register: login  
-    - debug : var=login  
+ 

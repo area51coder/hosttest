@@ -1,0 +1,18 @@
+---
+- name: host test
+  hosts: all
+  vars: 
+    file: hosttest.yml
+  tasks:
+    - name : check date
+      shell: date
+      notify: restart nginx
+    - name: capture output of whoami command
+      command: whoami
+      register: login  
+    - debug : var=login.start
+    - debug : var=file
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=restarted
+ 

@@ -13,6 +13,6 @@
     - debug : var=login.start
     - debug : var=file
   handlers:
-    - name: restart nginx test
+    - name: restart nginx test new test
       service: name=nginx state=restarted
  
